@@ -52,7 +52,8 @@
                             <el-table-column prop="wid" label="网站ID" header-align="center" align="center"></el-table-column>
                             <el-table-column prop="webName" label="网站名" header-align="center" align="center">
                                 <template slot-scope="scope">
-                                    <el-link type="primary" :href="scope.row.web" target="_blank">{{scope.row.webName}}</el-link>
+                                    <el-link v-if="scope.row.web != null" type="primary" :href="scope.row.web" target="_blank">{{scope.row.webName}}</el-link>
+                                    <span v-else>{{scope.row.webName}}</span>
                                 </template>
                             </el-table-column>
                             <el-table-column label="操作" header-align="center" align="center">
@@ -244,14 +245,14 @@ export default {
         }
     },
     mounted() {
-        // service.get("http://yapi.smart-xwork.cn/mock/244559/web").then((result) => {
-        //     this.total = result.data.data.total;
-        //     this.tableData = result.data.data.rows;
-        // });
-        service.get("/web").then((result) => {
+        service.get("http://yapi.smart-xwork.cn/mock/244559/web").then((result) => {
             this.total = result.data.data.total;
             this.tableData = result.data.data.rows;
         });
+        // service.get("/web").then((result) => {
+        //     this.total = result.data.data.total;
+        //     this.tableData = result.data.data.rows;
+        // });
     },
 }
 </script>
