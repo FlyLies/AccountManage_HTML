@@ -245,14 +245,14 @@ export default {
         }
     },
     mounted() {
-        service.get("http://yapi.smart-xwork.cn/mock/244559/web").then((result) => {
-            this.total = result.data.data.total;
-            this.tableData = result.data.data.rows;
-        });
-        // service.get("/web").then((result) => {
+        // service.get("http://yapi.smart-xwork.cn/mock/244559/web").then((result) => {
         //     this.total = result.data.data.total;
         //     this.tableData = result.data.data.rows;
         // });
+        service.get("/web").then((result) => {
+            this.total = result.data.data.total;
+            this.tableData = result.data.data.rows;
+        });
     },
 }
 </script>
