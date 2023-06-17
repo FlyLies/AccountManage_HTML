@@ -30,13 +30,13 @@ const routes = [
         name: 'account',
         component: () => import('../views/AccountView.vue')
       },
+      {
+        path: '/user',
+        name: 'user',
+        component: () => import('../views/UserView.vue')
+      },
     ]
   },
-  {
-    path: '/user',
-    name: 'user',
-    component: () => import('../views/UserView.vue')
-  }
 ]
 
 const router = new VueRouter({
